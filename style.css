@@ -1,0 +1,10 @@
+/* page setup
+--------------------------------
+*/
+
+:root {
+    font-family: 'Playfair Display', serif;
+    background-image: url(images/brick-wall.svg);
+    --bookshelf: #b45309;
+    --texr: #f3f4f6;
+}
