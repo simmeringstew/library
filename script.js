@@ -107,6 +107,7 @@ function createBook() {
 function addToBookshelf(thisBook) {
     if (bookshelf.length >= 6) {
         alert("Bookshelf Full");
+        resetCloseForm();
         return;
     }
     else {
