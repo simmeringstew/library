@@ -89,6 +89,9 @@ header>img {
     border-left: solid black 2px;
     border-bottom: solid black 2px;
     border-right: solid white 4px;
+}
+
+.blue, .green {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -103,16 +106,17 @@ header>img {
     background-color: #22c55e;
 }
 
-.remove {
+.book-buttons {
     margin-top: auto;
-    margin-bottom: 5px;
-    width: 50%;
-    border: none;
-    border-radius: 16px;
-    padding: 3px;
-    font-size: 0.7rem;
+    margin-bottom: 10px;
+}
+
+.book-buttons>button {
+    color: var(--text);
     background-color: black;
-    color: var(--text)
+    border: none;
+    border-radius: 12px;
+    width: 60px;
 }
 
 .add {
@@ -217,4 +221,12 @@ input[type=checkbox] {
 
 .popup-content>form>input.error {
     border: solid 1px red;
+}
+
+/* book items changed by js
+--------------------------------
+*/
+
+.display {
+    visibility: visible;
 }
