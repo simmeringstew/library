@@ -164,5 +164,12 @@ function removeBook() {
 // function to update the read status of a book
 
 function updateReadStatus() {
-
+    const bookPosition = this.getAttribute("data-key");
+    if (bookshelf[bookPosition].read === "Yes") {
+        bookshelf[bookPosition].read = "No";
+    }
+    else {
+        bookshelf[bookPosition].read = "Yes";
+    }
+    updateBookshelfDisplay();
 }
