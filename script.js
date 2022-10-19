@@ -1,3 +1,14 @@
+// book class
+
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+}
+
 // makes the add book button open up the popup
 
 const popup = document.querySelector(".popup");
@@ -18,7 +29,7 @@ cancelButton.addEventListener("click", () => {
 const submit = document.querySelector(".submit");
 const form = document.querySelector(".form");
 
-submit.addEventListener("click", validateForm);
+submit.addEventListener("click", createBook);
 
 form.addEventListener("keydown", (e) => {
     if (e.keyCode === 13) {
@@ -31,27 +42,27 @@ form.addEventListener("keydown", (e) => {
 
 // function to validate whether the user has entered information into the form
 
-function validateForm() {
+function createBook() {
     let emptyCheck = 0;
-    const title = document.querySelector("#title");
+    const title = document.querySelector("#title").value.trim();
     const titleError = document.querySelector(".title-error-message");
-    const author = document.querySelector("#author");
+    const author = document.querySelector("#author").value.trim();
     const authorError = document.querySelector(".author-error-message");
-    const pages = document.querySelector("#pages");
+    const pages = document.querySelector("#pages").value.trim();
     const pagesError = document.querySelector(".pages-error-message");
-    const read = document.querySelector("#read");
+    const read = document.querySelector("#read").checked;
 
-    if (title.value.trim() === "") {
+    if (title === "") {
         title.classList.add("error");
         titleError.classList.add("error");
         emptyCheck++;
     }
-    if (author.value.trim() === "") {
+    if (author === "") {
         author.classList.add("error");
         authorError.classList.add("error");
         emptyCheck++
     }
-    if (pages.value.trim() === "") {
+    if (pages === "") {
         pages.classList.add("error");
         pagesError.classList.add("error");
         emptyCheck++;
@@ -61,6 +72,7 @@ function validateForm() {
         return;
     }
     else {
-        console.log(read.checked);
+        const thisBook = new Book(title, author, pages, read);
+        console.log(thisBook.pages);
     }
 }
