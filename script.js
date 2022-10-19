@@ -26,6 +26,18 @@ const pages = document.querySelector("#pages");
 const pagesError = document.querySelector(".pages-error-message");
 const read = document.querySelector("#read");
 
+// buttons to change read status and remove book buttons
+
+const removeButtons = document.querySelectorAll(".remove");
+removeButtons.forEach(button => {
+    button.addEventListener("click", removeBook);
+});
+
+const readStatus = document.querySelectorAll(".read-status");
+readStatus.forEach(button => {
+    button.addEventListener("click", updateReadStatus);
+});
+
 // makes the add book button open up the popup
 
 const popup = document.querySelector(".popup");
@@ -119,6 +131,12 @@ function addToBookshelf(thisBook) {
 // function to update the display of the bookshelf
 
 function updateBookshelfDisplay() {
+
+    const allBooks = document.querySelectorAll(".book");
+    allBooks.forEach(book => {
+        book.classList.remove("display");
+    });
+
     for (let i = 0; i < bookshelf.length; i++) {
         const bookshelfItem = document.querySelector(`div[data-key="${i}"]`);
         const titleText = bookshelfItem.querySelector(".title-text");
@@ -133,4 +151,18 @@ function updateBookshelfDisplay() {
 
         bookshelfItem.classList.add("display");
     }
+}
+
+// function to remove a book from the bookshelf
+
+function removeBook() {
+    const bookPosition = this.getAttribute("data-key");
+    bookshelf.splice(bookPosition, 1);
+    updateBookshelfDisplay();
+}
+
+// function to update the read status of a book
+
+function updateReadStatus() {
+
 }
