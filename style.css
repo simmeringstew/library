@@ -7,6 +7,7 @@
     background-image: url(images/brick-wall.svg);
     --bookshelf: #7c2d12;
     --header-text: #4b5563;
+    --blue: #3b82f6;
     --text: #f3f4f6;
 }
 
@@ -95,7 +96,7 @@ header>img {
 }
 
 .blue {
-    background-color: #3b82f6;
+    background-color: var(--blue);
 }
 
 .green {
@@ -123,4 +124,97 @@ header>img {
     width: 40%;
     padding-top: 8px;
     padding-bottom: 8px;
+}
+
+/* popup
+--------------------------------
+*/
+
+.popup {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: var(--blue);
+}
+
+.popup-content {
+    position: relative;
+    top: 20%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background-color: white;
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.cancel {
+    height: 2.5rem;
+    width: 2.5rem;
+    align-self: flex-end;
+}
+
+.popup-content>h2 {
+    font-size: 1.8rem;
+    font-style: italic;
+}
+
+.popup-content>form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.popup-content>form>label {
+    margin-bottom: -10px;
+}
+
+.popup-content>form>input:not(.read) {
+    width: 16rem;
+    border-radius: 8px;
+    border: solid black 1px;
+    outline-color: var(--blue);
+}
+
+.title-error-message, .author-error-message, .pages-error-message {
+    visibility: hidden;
+    margin-top: -12px;
+    font-size: 0.7rem;
+    color: #be123c;
+}
+
+input[type=checkbox] {
+    transform: scale(1.5);
+    margin-left: 10px;
+    accent-color: var(--blue);
+}
+
+.submit {
+    background-color: #3b82f6;
+    color: var(--text);
+    border: none;
+    border-radius: 12px;
+    padding: 5px;
+    width: 6rem;
+}
+
+/* popup items changed by js
+--------------------------------
+*/
+
+.show {
+    display: block;
+}
+
+.error {
+    visibility: visible;
+}
+
+.popup-content>form>input.error {
+    border: solid 1px red;
 }
