@@ -112,6 +112,25 @@ function addToBookshelf(thisBook) {
     }
     else {
         bookshelf.push(thisBook);
-        console.log(bookshelf);
+        updateBookshelfDisplay();
+    }
+}
+
+// function to update the display of the bookshelf
+
+function updateBookshelfDisplay() {
+    for (let i = 0; i < bookshelf.length; i++) {
+        const bookshelfItem = document.querySelector(`div[data-key="${i}"]`);
+        const titleText = bookshelfItem.querySelector(".title-text");
+        const authorText = bookshelfItem.querySelector(".author-text");
+        const pagesText = bookshelfItem.querySelector(".pages-text");
+        const readText = bookshelfItem.querySelector(".read-text");
+
+        titleText.textContent = bookshelf[i].title;
+        authorText.textContent = bookshelf[i].author;
+        pagesText.textContent = bookshelf[i].pages;
+        readText.textContent = bookshelf[i].read;
+
+        bookshelfItem.classList.add("display");
     }
 }
