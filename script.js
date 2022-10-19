@@ -51,25 +51,25 @@ form.addEventListener("keydown", (e) => {
 
 function createBook() {
     let emptyCheck = 0;
-    const title = document.querySelector("#title").value.trim();
+    const title = document.querySelector("#title");
     const titleError = document.querySelector(".title-error-message");
-    const author = document.querySelector("#author").value.trim();
+    const author = document.querySelector("#author");
     const authorError = document.querySelector(".author-error-message");
-    const pages = document.querySelector("#pages").value.trim();
+    const pages = document.querySelector("#pages");
     const pagesError = document.querySelector(".pages-error-message");
-    const read = document.querySelector("#read").checked;
+    const read = document.querySelector("#read");
 
-    if (title === "") {
+    if (title.value.trim() === "") {
         title.classList.add("error");
         titleError.classList.add("error");
         emptyCheck++;
     }
-    if (author === "") {
+    if (author.value.trim() === "") {
         author.classList.add("error");
         authorError.classList.add("error");
         emptyCheck++
     }
-    if (pages === "") {
+    if (pages.value.trim() === "") {
         pages.classList.add("error");
         pagesError.classList.add("error");
         emptyCheck++;
@@ -79,7 +79,18 @@ function createBook() {
         return;
     }
     else {
-        const thisBook = new Book(title, author, pages, read);
+        const thisBook = new Book(title.value.trim(), author.value.trim(), pages.value.trim(), read.checked);
+        title.classList.remove("error");
+        titleError.classList.remove("error");
+        title.value = "";
+        author.classList.remove("error");
+        authorError.classList.remove("error");
+        author.value = ""
+        pages.classList.remove("error");
+        pagesError.classList.remove("error");
+        pages.value = "";
+        read.checked = false;
+        popup.classList.remove("show");
         addToBookshelf(thisBook);
     }
 }
