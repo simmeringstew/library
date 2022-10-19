@@ -1,4 +1,6 @@
-// book class
+// book class and bookshelf array
+
+let bookshelf = [];
 
 class Book {
     constructor(title, author, pages, read) {
@@ -73,6 +75,19 @@ function createBook() {
     }
     else {
         const thisBook = new Book(title, author, pages, read);
-        console.log(thisBook.pages);
+        addToBookshelf(thisBook);
+    }
+}
+
+// function to add the book to the bookshelf array
+
+function addToBookshelf(thisBook) {
+    if (bookshelf.length >= 6) {
+        alert("Bookshelf Full");
+        return;
+    }
+    else {
+        bookshelf.push(thisBook);
+        console.log(bookshelf);
     }
 }
