@@ -43,7 +43,7 @@ readStatus.forEach(button => {
 const popup = document.querySelector(".popup");
 const addBook = document.querySelector(".add");
 addBook.addEventListener("click", () => {
-    if (bookshelf.length >= 6){
+    if (bookshelf.length >= 6) {
         alert("Bookshelf Full");
         return;
     }
@@ -94,6 +94,13 @@ function resetCloseForm() {
 function createBook() {
     let emptyCheck = 0;
 
+    title.classList.remove("error");
+    titleError.classList.remove("error");
+    author.classList.remove("error");
+    authorError.classList.remove("error");
+    pages.classList.remove("error");
+    pagesError.classList.remove("error");
+
     if (title.value.trim() === "") {
         title.classList.add("error");
         titleError.classList.add("error");
@@ -105,6 +112,11 @@ function createBook() {
         emptyCheck++
     }
     if (pages.value.trim() === "") {
+        pages.classList.add("error");
+        pagesError.classList.add("error");
+        emptyCheck++;
+    }
+    else if (isNaN(pages.value.trim()) === true) {
         pages.classList.add("error");
         pagesError.classList.add("error");
         emptyCheck++;
