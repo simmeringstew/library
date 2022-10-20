@@ -43,7 +43,13 @@ readStatus.forEach(button => {
 const popup = document.querySelector(".popup");
 const addBook = document.querySelector(".add");
 addBook.addEventListener("click", () => {
-    popup.classList.add("show");
+    if (bookshelf.length >= 6){
+        alert("Bookshelf Full");
+        return;
+    }
+    else {
+        popup.classList.add("show");
+    }
 });
 
 // makes the x button on the popup close the popup
@@ -117,15 +123,8 @@ function createBook() {
 // function to add the book to the bookshelf array
 
 function addToBookshelf(thisBook) {
-    if (bookshelf.length >= 6) {
-        alert("Bookshelf Full");
-        resetCloseForm();
-        return;
-    }
-    else {
-        bookshelf.push(thisBook);
-        updateBookshelfDisplay();
-    }
+    bookshelf.push(thisBook);
+    updateBookshelfDisplay();
 }
 
 // function to update the display of the bookshelf
