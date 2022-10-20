@@ -113,11 +113,13 @@ function createBook() {
     }
     if (pages.value.trim() === "") {
         pages.classList.add("error");
+        pagesError.textContent = "*Field cannot be blank";
         pagesError.classList.add("error");
         emptyCheck++;
     }
     else if (isNaN(pages.value.trim()) === true) {
         pages.classList.add("error");
+        pagesError.textContent = "*Field must be a number";
         pagesError.classList.add("error");
         emptyCheck++;
     }
